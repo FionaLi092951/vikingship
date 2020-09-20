@@ -1,8 +1,17 @@
 
 .App{
-  .App-header{
+  padding: 20px;
+  .button-wrapper{
     Button{
-      margin: 20px 0px 20px 20px;
+      margin: 20px 20px 20px 0px;
+    }
+  }
+  .alert-wrapper{
+    width: 100%;
+    .alert {
+      display: inline-block;
+      width: 40%;
+      margin-right: 20px;
     }
   }
 }
