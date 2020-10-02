@@ -1,12 +1,45 @@
 import React from 'react';
 import Button, { ButtonType, ButtonSize } from './components/Button/Button';
 import Alert, { AlertType } from './components/Alert/Alert';
+import Menu from './components/Menu/Menu';
+import MenuItem from './components/Menu/MenuItem';
+import SubMenu from './components/Menu/SubMenu';
 import './styles/index.scss';
 import './App.scss';
 
 function App() {
   return (
     <div className="App">
+      <div className="meu-wrapper">
+        <h3>Menu组件</h3>
+        <h5>Menu Horizontal</h5>
+        <Menu defaultIndex="2" onSelect={(index) => { console.log(index) }}>
+          <MenuItem>menu item 1</MenuItem>
+          <MenuItem disabled>menu item 2</MenuItem>
+          <MenuItem>menu item 3</MenuItem>
+          {/* <li>should not be displayed</li> */}
+          <SubMenu title="SubMenuItem">
+            <MenuItem>Sub Menu Item 1</MenuItem>
+            <MenuItem>Sub Menu Item 2</MenuItem>
+            <MenuItem>Sub Menu Item 3</MenuItem>
+          </SubMenu>
+        </Menu>
+        <h5>Menu Vertical</h5>
+        <Menu
+          defaultOpenSubMenus={['3']}
+          mode="vertical"
+          defaultIndex="0"
+          onSelect={(index) => { console.log(index) }}>
+          <MenuItem>menu item 1</MenuItem>
+          <MenuItem disabled>menu item 2</MenuItem>
+          <MenuItem>menu item 3</MenuItem>
+          <SubMenu title="SubMenuItem">
+            <MenuItem>Sub Menu Item 1</MenuItem>
+            <MenuItem>Sub Menu Item 2</MenuItem>
+            <MenuItem>Sub Menu Item 3</MenuItem>
+          </SubMenu>
+        </Menu>
+      </div>
       <div className="button-wrapper">
         <h3>Button组件</h3>
         <h5>不同的ButtonType</h5>
