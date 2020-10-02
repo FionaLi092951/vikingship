@@ -18,7 +18,6 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
 
   const {
     title,
-    disabled,
     className,
     style,
     index,
