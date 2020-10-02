@@ -19,6 +19,9 @@
     opacity: $btn-disabled-opacity;
     box-shadow: none;
   }
+  &.round-corner{
+    border-radius: 50px;
+  }
 }
 
 .btn-lg{
