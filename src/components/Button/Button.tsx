@@ -46,6 +46,9 @@ type NativeAnchorProps = IBaseButtonProps & React.AnchorHTMLAttributes<HTMLEleme
 
 export type ButtonProps = Partial<NativeButtonProps & NativeAnchorProps>;
 
+/**
+ * Primary UI component for user interaction
+ */
 const Button: React.FC<ButtonProps> = (props) => {
  	const {
 		btnType,
