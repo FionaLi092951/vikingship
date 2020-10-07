@@ -1,0 +1,239 @@
+.circle_process {
+  position: relative;
+  width: 199px;
+  height: 200px;
+  .wrapper {
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+  }
+  
+  .right {
+    right: 0;
+  }
+  
+  .left {
+    left: 0;
+  }
+  
+  .circle {
+    width: 160px;
+    height: 160px;
+    border: 20px solid transparent;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    transform: rotate(-135deg);
+  }
+  
+  .rightcircle {
+    border-top: 20px solid green;
+    border-right: 20px solid green;
+    right: 0;
+    animation: circle_right 5s linear infinite;
+  }
+  
+  .leftcircle {
+    border-bottom: 20px solid green;
+    border-left: 20px solid green;
+    left: 0;
+    transform: rotate(-135deg);
+    animation: circle_left 5s linear infinite;
+  }
+  
+  @keyframes circle_right {
+    0% {
+        -webkit-transform: rotate(-135deg);
+    }
+  
+    50%,
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+  }
+  
+  @keyframes circle_left {
+  
+    0%,
+    50% {
+        -webkit-transform: rotate(-135deg);
+    }
+  
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+  }
+}
+
+
+
+
+.squre-wrapper{
+  width: 800px;
+  height: 200px;
+  display: flex;
+  .squre-1{
+    width: 10vw;
+    height: 10vw;
+    background-color: blue;
+    margin-right: 20px;
+    clip-path: circle(40%);
+  }
+  .squre-2{
+    width: 10%;
+    padding-bottom: 10%;
+    background-color: blue;
+    height: 0; // 防止内容撑开多余的高度
+  }
+}
+
+
+.center-wrapper{
+  display: flex;
+  // justify-content: space-between;
+  .center-outer{
+    width: 300px;
+    height: 150px;
+    border: 1px solid black;
+  }
+  .center-inner{
+    width: 40px;
+    height: 60px;
+    background-color: yellow;
+  }
+  .center-outer-1{
+    @extend .center-outer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .center-inner-1{
+      @extend .center-inner;
+    }
+  }
+  .center-outer-2{
+    @extend .center-outer;
+    position: relative;
+    .center-inner-2{
+      @extend .center-inner;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .center-outer-3{
+    @extend .center-outer;
+    position: relative;
+    .center-inner-3{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -20px;
+      margin-top: -30px;
+      @extend .center-inner;
+    }
+  }
+}
+
+
+
+.app-css-wrapper{
+  padding: 20px;
+}
+
+.sticky-wrapper{
+  flex: 1;
+  height: 300px;
+  overflow: auto;
+  dl{
+    dt{
+      background-color: black;
+      color: white;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      left: 0;
+      margin: 1em 0;
+    }
+  }
+}
+@-webkit-keyframes move_eye { from { margin-left: -20%; } to { margin-left: 100%; }  }
+  @keyframes move_eye { from { margin-left: -20%; } to { margin-left: 100%; }  }
+
+.animation-wrapper{
+  margin-top: 20px;
+  background-color: black;
+  height: 25px;
+  width: 50%;
+  overflow: hidden;
+  .polling_message {
+    color: white;
+    float: left;
+    margin-right: 2%;            
+  }
+  
+  .cylon_eye {
+    background-color: red;
+    background-image: linear-gradient(to right,
+        rgba(0, 0, 0, .9) 25%,
+        rgba(0, 0, 0, .1) 50%,
+        rgba(0, 0, 0, .9) 75%);
+    color: white;
+    height: 100%;
+    width: 20%;
+
+    /* @keyframes
+        animation-duration | animation-timing-function | animation-delay |
+        animation-iteration-count | animation-direction | animation-fill-mode | animation-play-state | animation-name
+    * animation-duration: 一个动画周期的时长，默认为0表示没有动画
+    * animation-timing-function: CSS动画在每个动画周期中执行的节奏
+      - ease-in | liner | step-start ...
+    * animation-delay: 定义动画从何时开始执行，如果设置为-1，会立即执行，从动画的1s处开始执行
+    * animation-iteration-count: 动画循环的次数，可以设置为infinite
+    * animation-direction: 动画执行的方向
+      - normal | reverse | alternate | alternate-reverse ...
+    * animation-fill-mode: 设置CSS动画在执行之前和之后如何将样式应用于其目标
+      - forwards: 执行后保留最后一帧的状态
+      - backwards: 动画将在应用于目标时立即应用第一个关键帧中定义的值
+    * animation-play-state: 动画执行的状态，puased | running
+    * animation-name: 动画名，由@keyframe指定的动画
+   */
+  
+    // -webkit-animation: 4s linear 0s infinite alternate move_eye;
+            animation: 4s linear -1s infinite alternate forwards move_eye;
+  }
+}
+
+.animation-fill-mode-wrapper{
+  .demo {
+    background-color: pink;
+    border-top: 100px solid #ccc;
+    height: 180px;
+    // font-size: 18px;
+  }
+  
+  @keyframes grow {
+    0% { font-size: 0px; color: blue; }
+    100% { font-size: 40px; color: burlywood;}
+  }
+  
+  .demo:hover .grows {
+    animation-name: grow;
+    animation-duration: 3s;
+    animation-fill-mode: backwards;
+  }
+  
+  .demo:hover .growsandstays {
+    animation-name: grow;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+  }
+}
+
+
+.transition-wrapper{
+  /* property name | duration | timing function | delay */
+  transition: margin-right 4s ease-in-out 1s;
+}
